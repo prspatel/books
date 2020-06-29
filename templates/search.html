@@ -1,0 +1,72 @@
+
+{% extends "layout.html" %}
+
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="../static/search.css">
+{% endblock %}
+
+{% block title %}
+    Book Search
+{% endblock %}
+
+
+{% block container %}
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Welcome {{session.name}}!</a>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+         <div class="row justify-content-md-center">
+            <div class="col-md-8" id="container-top">
+                <h2 id= "welcome-text"> Search a Book for Reviews </h2>
+            </div>
+         </div>
+    </div>
+    <div class="container">
+        <form id="search-div" action="{{ url_for('search') }}" method="post" >
+            <div class="row" >
+                <div class="col-9" >
+                    <input class="form-control" type="text" name="search-text" placeholder="Search a book" aria-label="Search" id="validationDefault01" value="" required>
+                </div>
+                <div class="col-2">
+                    <select class="browser-default custom-select" name="criteria">
+                        <option value="0" selected>Not specific</option>
+                        <option value="1">Author</option>
+                        <option value="2">Publication year</option>
+                        <option value="3">Title</option>
+                        <option value="4">ISBN</option>
+                    </select>
+                </div>
+                <div class="col-1">
+                     <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id ="search_result">
+        {% if books == {}%}
+            <h3>Unfortunately, we could not find the book. Please try again witha different phrase.</h3>
+        {%else%}
+            <div class="container result-container">
+                <div class="card-columns">
+                        {%for book in books%}
+                            <div class="card" >
+                                <div class="card-body">
+                                    <h4 class="card-title">Title: {{book["title"]}}</h4>
+                                    <h6 class="card-text">Author: {{book['author']}}</h6>
+                                    <h6 class="card-text">Publication Year: {{book['pub_year']}}</h6>
+                                    <h6 class="card-text">ISBN: {{book['isbn']}}</h6>
+                                       <a href="/book/{{book['isbn']}}" classl="card-link">Full description</a>
+                                </div>
+                            </div>
+                        {%endfor%}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

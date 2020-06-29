@@ -1,0 +1,52 @@
+
+{% extends "layout.html" %}
+
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="../static/register.css"/>
+{% endblock %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+
+{% block container %}
+    <div class="container">
+            <form id = "form" class="border" action="{{ url_for('register') }}" method="post">
+                <div class="row justify-content-md-center">
+                    <h3 id ="welcome-text">Register</h3>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6">
+                        <label for="validationDefault01" class="form-headings" sc>First name</label>
+                        <input type="text" class="form-control" name="fname" id="validationDefault01" placeholder="First name" value="" required>
+                    </div>
+                     <div class="col-md-6">
+                        <label for="validationDefault02" class="form-headings">Last Name</label>
+                        <input type="text" class="form-control" name="lname" id="validationDefault02" placeholder="Last Name" value="" required>
+                     </div>
+                </div>
+                <div class="row justify-content-md-left">
+                     <div class="col-md-8">
+                        <label for="validationDefault02" class="form-headings-username">User Name</label>
+                        <input type="text" class="form-control" name="username" id="validationDefault03" placeholder="Username" value="" required>
+                     </div>
+                </div>
+                <div class="row justify-content-md-center">
+                     <div class="col-md-6">
+                        <label for="validationDefault02" class="form-headings">Password</label>
+                        <input type="password" class="form-control" name="password" id="validationDefault04" placeholder="Password" value="" required>
+                     </div>
+                    <div class="col-md-6">
+                        <label for="validationDefault02" class="form-headings">Re-enter Password</label>
+                        <input type="password" class="form-control" name="password2" id="validationDefault05" placeholder="Password" value="" required>
+                     </div>
+                </div>
+                <p/>
+                <div>
+                    <button class="btn btn-success" type="submit">Register</button>
+                </div>
+            </form>
+    </div>
+{% endblock %}

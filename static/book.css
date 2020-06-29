@@ -1,0 +1,12 @@
+.book_container {
+    display: flex;
+    justify-content: center;
+    margin-top:25px;
+    background-color: white;
+}
+
+.review_container {
+    padding:20px;
+    margin-top:25px;
+    background-color: #289fe3;
+}

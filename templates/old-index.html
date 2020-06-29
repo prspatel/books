@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Home Page</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/index.css"/>
+	</head>
+
+	<body class="text-center" data-gr-c-s-loaded="true">
+        <div class="container">
+            <form id = "form" class="border" action="{{ url_for('index') }}" method="post">
+                <div class="row justify-content-md-center">
+                    <h3 id ="welcome-text">Welcome! Please Login.</h3>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-8">
+                        <label for="validationDefault01" class="form-headings" sc>User name</label>
+                        <input type="text" class="form-control" name="username" id="validationDefault01" placeholder="User name" value="" required>
+                    </div>
+
+                </div>
+
+                <div class="row justify-content-md-center">
+                     <div class="col-md-8">
+                        <label for="validationDefault02" class="form-headings">Password</label>
+                        <input type="password" class="form-control" name="password" id="validationDefault02" placeholder="Password" value="" required>
+
+                     </div>
+                </div>
+                <p/>
+                <div>
+                    <button class="btn btn-success" type="submit">Login</button>
+                    <button class="btn btn-info" type="button">Register</button>
+                </div>
+                <a href="#"> Forgot Password</a>
+            </form>
+        </div>
+    </body>
+</html>
